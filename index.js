@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 const mainFile = 'randomText.txt'
-const currentPath = path.join(__dirname, 'content');
 
 
 const makeDir = fs.mkdir(path.join(__dirname, 'content'), (err) => {
                 if (err) {
-                    return console.error(err);
+                    console.log(error(err));
                 }
-                return 'content folder created';});
+                console.log('content folder created');
+              });
 
 const makeFile = fs.appendFile(mainFile, 'Author: Joshua Londono', (err) => {
                   if (err) {
@@ -19,13 +19,24 @@ const makeFile = fs.appendFile(mainFile, 'Author: Joshua Londono', (err) => {
                   }
                 });
 
-const makeCopy = fs.copyFile(mainFile, 'verbage.txt', (err) => {
-                  if (err) throw err;
-                  console.log('verbage.txt created');
+const copyFile = fs.copyFile(mainFile, 'verbage.txt', (err) => {
+          if (err) {
+            console.log(err);
+          }
+          else {
+          console.log('verbage.txt created');
+           }
                 });
 
+  const delFile = setTimeout(function(){
+    fs.rmdir('content', () => {
+      console.log('deleted');
+
+    });
+  }, 2000);
 
 //console.log(data);
 makeDir;
 makeFile;
 copyFile;
+delFile;
