@@ -19,7 +19,7 @@ const makeFile = fs.appendFile(mainFile, 'Author: Joshua Londono', (err) => {
                   }
                 });
 
-const copyFile = fs.copyFile(mainFile, 'verbage.txt', (err) => {
+const copyFile = fs.copyFile(mainFile, 'content', 'verbage.txt', (err) => {
           if (err) {
             console.log(err);
           }
@@ -33,7 +33,7 @@ const copyFile = fs.copyFile(mainFile, 'verbage.txt', (err) => {
       console.log('deleted');
 
     });
-  }, 2000);
+  }, 6000);
 
 //console.log(data);
 makeDir;
